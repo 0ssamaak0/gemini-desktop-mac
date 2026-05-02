@@ -25,7 +25,7 @@ struct GeminiDesktopApp: App {
 
     var body: some Scene {
         Window(AppCoordinator.Constants.mainWindowTitle, id: Constants.mainWindowID) {
-            MainWindowView(coordinator: $coordinator)
+            MainWindowView(coordinator: coordinator)
                 .toolbarBackground(Color(nsColor: Constants.toolbarColor), for: .windowToolbar)
                 .frame(minWidth: Constants.mainWindowMinWidth, minHeight: Constants.mainWindowMinHeight)
         }
@@ -120,12 +120,12 @@ struct GeminiDesktopApp: App {
         }
 
         Settings {
-            SettingsView(coordinator: $coordinator)
+            SettingsView(coordinator: coordinator)
         }
         .defaultSize(width: Constants.settingsWindowDefaultWidth, height: Constants.settingsWindowDefaultHeight)
 
         MenuBarExtra {
-            MenuBarView(coordinator: $coordinator)
+            MenuBarView(coordinator: coordinator)
         } label: {
             Image(systemName: Constants.menuBarIcon)
                 .onAppear {
